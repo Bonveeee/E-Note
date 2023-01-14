@@ -9,7 +9,7 @@ import Notes from "./components/Notes";
 function App() {
   const [notes, setNotes] = useState([]);
 
-  //fetches data from mock local api using async
+  //fetches data from mock local api using async  GET
   useEffect(() => {
     const getNotes = async () => {
       const notesFromServer = await fetchNotes();
@@ -18,7 +18,7 @@ function App() {
     getNotes();
   }, []);
 
-  //fetch notes
+  //fetch notes READ
   const fetchNotes = async () => {
     const res = await fetch("http://localhost:5000/notes");
     const data = await res.json();
@@ -26,7 +26,7 @@ function App() {
     return data;
   };
 
-  //add Note
+  //add Note POST
   const addNote = async (note) => {
     const res = await fetch("http://localhost:5000/notes", {
       method: "POST",
@@ -41,7 +41,7 @@ function App() {
     setNotes([...notes, data]);
   };
 
-  //delete Task
+  //Delete Task
   const deleteNote = async (id) => {
     await fetch(`http://localhost:5000/notes/${id}`, {
       method: "DELETE",

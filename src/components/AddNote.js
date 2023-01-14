@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Form, Button, Collapse } from "react-bootstrap";
 
+//this component is mainly for adding notes, it has catch  errors and utilizes react bootstrap form
 const AddNote = ({ onAdd }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -12,6 +13,7 @@ const AddNote = ({ onAdd }) => {
   const onSubmit = (e) => {
     e.preventDefault();
 
+    //catch error to avoid unwanted dummy data
     if (!content) {
       alert("Please add content for the note");
       return;
@@ -36,6 +38,7 @@ const AddNote = ({ onAdd }) => {
   };
 
   return (
+    
     <>
       <Button
         onClick={() => setOpen(!open)}
@@ -43,7 +46,7 @@ const AddNote = ({ onAdd }) => {
         aria-expanded={open}
         size="sm"
       >
-        Click to add Note 
+        Click to add Note
       </Button>
 
       <Collapse in={open}>
@@ -61,7 +64,6 @@ const AddNote = ({ onAdd }) => {
               className="mb-3"
               controlId="exampleForm.ControlTextarea1"
             >
-              
               <Form.Control
                 as="textarea"
                 rows={3}
@@ -89,7 +91,7 @@ const AddNote = ({ onAdd }) => {
               label="On"
               onChange={(e) => setReminder(e.currentTarget.checked)}
             />
-            <Button as="input" type="submit" value="Submit" size="sm"/>{" "}
+            <Button as="input" type="submit" value="Submit" size="sm" />{" "}
           </Form>
         </div>
       </Collapse>

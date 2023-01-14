@@ -1,6 +1,7 @@
 import { FaTimes } from 'react-icons/fa';
 import { Card } from 'react-bootstrap';
 
+
 const Note = ({note, onDelete, onToggle}) => {
   return (
     <Card className={`note ${note.reminder ? 'reminder' : ''}`}>

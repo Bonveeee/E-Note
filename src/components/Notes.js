@@ -11,7 +11,7 @@ import Note from "./Note";
 
 const Notes = ({ notes, onDelete, onToggle, onEdit }) => {
 
-  
+// return data in form of card
   return (
     <Container mt-2>
       <Row>

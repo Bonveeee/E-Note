@@ -20,7 +20,7 @@ function App() {
 
   //fetch notes READ
   const fetchNotes = async () => {
-    const res = await fetch("http://localhost:5000/notes");
+    const res = await fetch("{{base_url}}/posts");
     const data = await res.json();
 
     return data;
@@ -28,7 +28,7 @@ function App() {
 
   //add Note POST
   const addNote = async (note) => {
-    const res = await fetch("http://localhost:5000/notes", {
+    const res = await fetch("{{base_url}}/posts", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -43,7 +43,7 @@ function App() {
 
   //Delete Task
   const deleteNote = async (id) => {
-    await fetch(`http://localhost:5000/notes/${id}`, {
+    await fetch(`{{base_url}}/posts/${id}`, {
       method: "DELETE",
     });
 

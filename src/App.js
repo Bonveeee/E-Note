@@ -3,24 +3,24 @@ import AddNote from "./components/AddNote";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
-import Notes from "./components/Notes";
+import Posts from "./components/Posts";
 //import Search from "./components/Search";
 
 function App() {
-  const [notes, setNotes] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   //fetches data from mock local api using async  GET
   useEffect(() => {
-    const getNotes = async () => {
-      const notesFromServer = await fetchNotes();
-      setNotes(notesFromServer);
+    const getPosts = async () => {
+      const postsFromServer = await fetchPosts();
+      setPosts(postsFromServer);
     };
-    getNotes();
+    getPosts();
   }, []);
 
-  //fetch notes READ
-  const fetchNotes = async () => {
-    const res = await fetch("{{base_url}}/posts");
+  //fetch posts READ
+  const fetchPosts = async () => {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts");
     const data = await res.json();
 
     return data;
@@ -28,7 +28,7 @@ function App() {
 
   //add Note POST
   const addNote = async (note) => {
-    const res = await fetch("{{base_url}}/posts", {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -38,16 +38,16 @@ function App() {
 
     //new data is added
     const data = await res.json();
-    setNotes([...notes, data]);
+    setPosts([...posts, data]);
   };
 
   //Delete Task
   const deleteNote = async (id) => {
-    await fetch(`{{base_url}}/posts/${id}`, {
+    await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       method: "DELETE",
     });
 
-    setNotes(notes.filter((note) => note.id !== id));
+    setPosts(posts.filter((post) => post.id !== id));
   };
 
   return (
@@ -61,7 +61,7 @@ function App() {
       <Container>
         {/* <Search /> */}
         <AddNote onAdd={addNote} />
-        <Notes notes={notes} onDelete={deleteNote} />
+        <Posts posts={posts} onDelete={deleteNote} />
         <Footer />
       </Container>
     </Router>

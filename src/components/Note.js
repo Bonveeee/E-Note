@@ -2,20 +2,20 @@ import { FaTimes } from 'react-icons/fa';
 import { Card } from 'react-bootstrap';
 
 
-const Note = ({note, onDelete, onToggle}) => {
+const Post = ({post, onDelete, onToggle}) => {
   return (
-    <Card className={`note ${note.reminder ? 'reminder' : ''}`}>
+    <Card>
       <Card.Body>
         <Card.Title>
-          {note.title}
-          <FaTimes style={{color: 'red', cursor: 'pointer'}} onClick={() => onDelete(note.id)}/>
+          {post.title}
+          <FaTimes style={{color: 'red', cursor: 'pointer'}} onClick={() => onDelete(post.id)}/>
         </Card.Title>
-        <Card.Text>{note.content}</Card.Text>
-        <Card.Text>{note.category}</Card.Text>
-        <Card.Text onChange={() => onToggle(note.id)} checked={note.reminder}>Reminder:</Card.Text>
+        <Card.Text>{post.userID}</Card.Text>
+        <Card.Text>{post.body}</Card.Text>
+        {/* <Card.Text onChange={() => onToggle(post.id)} checked={post.reminder}>Reminder:</Card.Text> */}
       </Card.Body>
     </Card>
   )
 }
 
-export default Note;
+export default Post;

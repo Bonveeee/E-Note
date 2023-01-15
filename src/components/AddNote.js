@@ -31,11 +31,12 @@ const AddNote = ({ onAdd }) => {
       return;
     }
 
-    onAdd({ title, body, userId });
+    onAdd({ userId, title, body });
 
+    setUserId("");
     setTitle("");
     setBody("");
-    setUserId("");
+    
   };
 
   return (

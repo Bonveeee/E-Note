@@ -45,7 +45,7 @@ const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
 
                 <Stack direction="horizontal" gap={3}>
                 <Button 
-                // onClick={() => onEdit(post)}
+                onClick={() => onEdit(post.id)}
                 >Edit</Button>
                   <Button
                     variant="danger"

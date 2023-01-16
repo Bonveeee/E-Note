@@ -1,15 +1,13 @@
 import { useState, useEffect } from "react";
 import AddNote from "./components/AddPost";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { BrowserRouter as Router} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
 // import EditPost from "./components/EditPost";
 
-
 function App() {
   const [posts, setPosts] = useState([]);
-  
 
   //fetches data from mock local api using async  GET
   useEffect(() => {
@@ -52,19 +50,38 @@ function App() {
     setPosts(posts.filter((post) => post.id !== id));
   };
 
+  // //edit post
+  // const editPost = async (post) => {
+  //   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
+  //     method: "PUT",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(post),
+  //   });
+
+  //   //edited data
+  //    const data = await res.json();
+  //     onEdit(post.id, data);
+  // };
+
   return (
     <Router>
       <Navbar bg="light" expand="lg" className="justify-content-between">
-        <Navbar.Brand href="#home"><h1 style={{margin:" 10px 20px 10px 10px"}}>E-Post</h1></Navbar.Brand>
-        <Nav className="justify-content-center">
-          <Nav.Link href="#about">Search</Nav.Link>
-        </Nav>
+        <Navbar.Brand href="#home">
+          <h1 style={{ margin: " 10px 20px 10px 10px" }}>E-Post</h1>
+        </Navbar.Brand>
+        <Nav className="justify-content-center"></Nav>
       </Navbar>
       <Container>
-     {/* <EditPost/> */}
+        {/* <EditPost/> */}
         <AddNote onAdd={addPost} />
-        <Posts posts={posts} onDelete={deletePost}   />
-     
+        <Posts
+          posts={posts}
+          onDelete={deletePost}
+          // onEdit={editPost}
+        />
+
         <Footer />
       </Container>
     </Router>

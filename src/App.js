@@ -4,7 +4,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { BrowserRouter as Router} from "react-router-dom";
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
-//import Search from "./components/Search";
+// import EditPost from "./components/EditPost";
 
 
 function App() {
@@ -43,20 +43,6 @@ function App() {
     setPosts([...posts, data]);
   };
 
-  // //update
-  // const editPost = async (post) => {
-       
-  //     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
-  //       method: 'PUT',
-  //       body: JSON.stringify(post),
-  //       headers: {
-  //         'Content-Type': 'application/json'
-  //       }
-  //     });
-  //     const data = await res.json();
-  //     setPosts(post.id, data);
-   
-  // }
   //Delete Task
   const deletePost = async (id) => {
     await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
@@ -75,11 +61,10 @@ function App() {
         </Nav>
       </Navbar>
       <Container>
-        {/* <Search /> */}
+     {/* <EditPost/> */}
         <AddNote onAdd={addPost} />
-        <Posts posts={posts} onDelete={deletePost} 
-        // onEdit={editPost}
-         />
+        <Posts posts={posts} onDelete={deletePost}   />
+     
         <Footer />
       </Container>
     </Router>

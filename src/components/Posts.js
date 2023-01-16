@@ -2,7 +2,7 @@ import { Container, Row, Col, Stack } from "react-bootstrap";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 // import Post from "./Post";
-import EditPost from "./EditPost";
+// import EditPost from "./EditPost";
 
 
 const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
@@ -27,7 +27,7 @@ const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
       </h1>
       <Row>
         {posts.map((post, index) => (
-          <Col xs={6} md={4} key={index}>
+          <Col xs={12} md={4} key={index}>
           {/* the post will be displayed in a card format */}
             <Card
               style={{

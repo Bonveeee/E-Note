@@ -3,6 +3,7 @@ import { Form, Button, Collapse } from "react-bootstrap";
 
 //this component is mainly for adding posts,  catch  errors and utilizes react bootstrap form
 const AddPost = ({ onAdd }) => {
+  //state variables
   const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");

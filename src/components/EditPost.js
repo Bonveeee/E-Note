@@ -1,8 +1,20 @@
-// import React, { useState } from 'react';
+// import React, { useState, useEffect} from 'react';
 // import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 
 
 // const EditPost = ({ post, onEdit }) => {
+
+//   const [userId, setUserId] = useState("");
+//   const [title, setTitle] = useState("");
+//   const [body, setBody] = useState("");
+
+//   useEffect(() => {
+//     setUserId(post.userId);
+//     setTitle(post.title);
+//     setBody(post.body);
+// }, []);
+
+
 //   const [formData, setFormData] = useState({
 //     title: post.title,
 //     userId: post.userId,
@@ -43,7 +55,7 @@
 //         type="text"
 //         name="title"
 //         placeholder="Edit Title"
-//         value={formData.title}
+//         value={title}
 //         onChange={handleChange}
 //       />
 //     </FormGroup>
@@ -53,7 +65,7 @@
 //         type="textarea"
 //         name="ID"
 //         placeholder="Edit ID"
-//         value={formData.userId}
+//         value={userId}
 //         onChange={handleChange}
 //       />
 //     </FormGroup>
@@ -63,7 +75,7 @@
 //         type="text"
 //         name="post"
 //         placeholder="Edit Post"
-//         value={formData.body}
+//         value={body}
 //         onChange={handleChange}
 //       />
 //     </FormGroup>

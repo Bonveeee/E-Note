@@ -6,7 +6,7 @@ import { Container, Row, Col } from "react-bootstrap";
     <Container>
     <Row className="align-items-center justify-content-center">
     <Col xs={12}>
-    <p className="text-center">Copyright © 2023</p>
+    <p className="text-center"><h4>Copyright © 2023</h4></p>
         </Col>
     </Row>
     </Container>

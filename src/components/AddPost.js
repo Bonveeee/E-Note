@@ -1,33 +1,30 @@
 import { useState } from "react";
 import { Form, Button, Collapse } from "react-bootstrap";
 
-//this component is mainly for adding notes, it has catch  errors and utilizes react bootstrap form
-const AddNote = ({ onAdd }) => {
+//this component is mainly for adding posts,  catch  errors and utilizes react bootstrap form
+const AddPost = ({ onAdd }) => {
   const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
-
-  // const [category, setCategory] = useState("");
-  // const [reminder, setReminder] = useState("");
 
   const [open, setOpen] = useState(false);
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    //catch error to avoid unwanted dummy data
+    //catch error to avoid unwanted blank dummy data
     if (!body) {
-      alert("Please add body for the note");
+      alert("Please add body for the post");
       return;
     }
 
     if (!title) {
-      alert("Please add a title for the note");
+      alert("Please add a title for the post");
       return;
     }
 
     if (!userId) {
-      alert("Please add a ID for the note");
+      alert("Please add an ID for the post");
       return;
     }
 
@@ -46,8 +43,9 @@ const AddNote = ({ onAdd }) => {
         aria-controls="example-collapse-text"
         aria-expanded={open}
         size="sm"
+        style={{marginBottom:"10px"}}
       >
-        Click to add Note
+        Click to add a Post
       </Button>
 
       <Collapse in={open}>
@@ -75,31 +73,13 @@ const AddNote = ({ onAdd }) => {
             >
               <Form.Control
                 as="textarea"
-                rows={3}
-                placeholder="write your note"
+                rows={4}
+                placeholder="write your post"
                 value={body}
                 onChange={(e) => setBody(e.target.value)}
               />
             </Form.Group>
-            {/* <Form.Label>Category</Form.Label>
-            <Form.Select
-              aria-label="Default select example"
-              value={userId}
-              onClick={(e) => setUserId(e.target.value)}
-            >
-              <option>Open this select menu</option>
-              <option value="Work">Work</option>
-              <option value="Personal">Personal</option>
-              <option value="Other">Other</option>
-            </Form.Select>
-            <Form.Label>Keep a Reminder?</Form.Label>
-            <Form.Check
-              type="switch"
-              id="custom-switch"
-              value={reminder}
-              label="On"
-              onChange={(e) => setReminder(e.currentTarget.checked)}
-            /> */}
+           
             <Button as="input" type="submit" value="Submit" size="sm" />{" "}
           </Form>
         </div>
@@ -108,4 +88,4 @@ const AddNote = ({ onAdd }) => {
   );
 };
 
-export default AddNote;
+export default AddPost;

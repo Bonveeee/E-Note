@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import AddNote from "./components/AddNote";
+import AddNote from "./components/AddPost";
 import { Navbar, Nav, Container } from "react-bootstrap";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
@@ -8,6 +8,7 @@ import Posts from "./components/Posts";
 
 function App() {
   const [posts, setPosts] = useState([]);
+  
 
   //fetches data from mock local api using async  GET
   useEffect(() => {
@@ -26,14 +27,14 @@ function App() {
     return data;
   };
 
-  //add Note POST
-  const addNote = async (note) => {
+  //add POST
+  const addPost = async (post) => {
     const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
       method: "POST",
       headers: {
         "Content-type": "application/json",
       },
-      body: JSON.stringify(note),
+      body: JSON.stringify(post),
     });
 
     //new data is added
@@ -41,8 +42,22 @@ function App() {
     setPosts([...posts, data]);
   };
 
+  //update
+  const editPost = async (post) => {
+       
+      const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
+        method: 'PUT',
+        body: JSON.stringify(post),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      const data = await res.json();
+      setPosts(post.id, data);
+   
+  }
   //Delete Task
-  const deleteNote = async (id) => {
+  const deletePost = async (id) => {
     await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
       method: "DELETE",
     });
@@ -53,15 +68,15 @@ function App() {
   return (
     <Router>
       <Navbar bg="light" expand="lg" className="justify-content-between">
-        <Navbar.Brand href="#home"><h1>E-Note</h1></Navbar.Brand>
+        <Navbar.Brand href="#home"><h1 style={{margin:" 10px 20px 10px 10px"}}>E-Post</h1></Navbar.Brand>
         <Nav className="justify-content-center">
           <Nav.Link href="#about">Search</Nav.Link>
         </Nav>
       </Navbar>
       <Container>
         {/* <Search /> */}
-        <AddNote onAdd={addNote} />
-        <Posts posts={posts} onDelete={deleteNote} />
+        <AddNote onAdd={addPost} />
+        <Posts posts={posts} onDelete={deletePost} onEdit={editPost} />
         <Footer />
       </Container>
     </Router>

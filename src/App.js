@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import AddNote from "./components/AddPost";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
 //import Search from "./components/Search";
+
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -42,20 +43,20 @@ function App() {
     setPosts([...posts, data]);
   };
 
-  //update
-  const editPost = async (post) => {
+  // //update
+  // const editPost = async (post) => {
        
-      const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
-        method: 'PUT',
-        body: JSON.stringify(post),
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      const data = await res.json();
-      setPosts(post.id, data);
+  //     const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
+  //       method: 'PUT',
+  //       body: JSON.stringify(post),
+  //       headers: {
+  //         'Content-Type': 'application/json'
+  //       }
+  //     });
+  //     const data = await res.json();
+  //     setPosts(post.id, data);
    
-  }
+  // }
   //Delete Task
   const deletePost = async (id) => {
     await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
@@ -76,7 +77,9 @@ function App() {
       <Container>
         {/* <Search /> */}
         <AddNote onAdd={addPost} />
-        <Posts posts={posts} onDelete={deletePost} onEdit={editPost} />
+        <Posts posts={posts} onDelete={deletePost} 
+        // onEdit={editPost}
+         />
         <Footer />
       </Container>
     </Router>

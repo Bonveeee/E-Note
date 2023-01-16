@@ -44,7 +44,9 @@ const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
                 <CardSubtitle><h5>Post:</h5><span> {post.body}</span></CardSubtitle>
 
                 <Stack direction="horizontal" gap={3}>
-                <Button onClick={() => onEdit(post)}>Edit</Button>
+                <Button 
+                // onClick={() => onEdit(post)}
+                >Edit</Button>
                   <Button
                     variant="danger"
                     size="sm"

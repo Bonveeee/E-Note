@@ -1,4 +1,4 @@
-# E-Note
+# E-Post
 
  ## Table of Content
  - [Description](#description)
@@ -29,12 +29,12 @@ To use this repo on your machine requires some simple steps
 - Open a terminal / command line interface on your computer
 - Clone the repo by using the following:
 
-        git clone git@github.com:Bonveeee/E-Note.git
+        git clone git@github.com:Bonveeee/E-Post.git
 
 - Be patient as it creates a copy on your local machine for you.
 - Change directory to the repo folder:
 
-        cd E-Note
+        cd E-Post
 
 - (Optional) Open it in ``Visual Studio Code``
 
@@ -61,22 +61,13 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
-
-### `npm run server`
-
-Runs the app server in the development mode.\
-Open [http://localhost5000](http://localhost:5000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-
- [Go Back to the top](#E-Note)
+ [Go Back to the top](#E-Post)
  
 ### Live Link
-- API link (--)
+- API link (https://jsonplaceholder.typicode.com/posts)
 
 - Click this link to view the live application [#incoming]
+(https://e-note.vercel.app/)
 
 ### Technology  Used
 
@@ -85,7 +76,7 @@ You may also see any lint errors in the console.
 * ReactJS
 * ReactBoostrap
 
-[Go Back to the top](#E-Note)
+[Go Back to the top](#E-Post)
 
 ## Known Bugs
 * 
@@ -94,7 +85,7 @@ You may also see any lint errors in the console.
 * scale to add more features , to do, share,  archive etc.
 ## MIT License
 
-Copyright (c) [2023] [E-Note] 
+Copyright (c) [2023] [E-Post] 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

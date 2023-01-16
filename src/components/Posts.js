@@ -7,7 +7,7 @@ import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 
 const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
 
-  // return data in a container
+    // return data in a container
   return (
     <Container
       className="mt-2"
@@ -45,7 +45,7 @@ const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
 
                 <Stack direction="horizontal" gap={3}>
                 <Button 
-                onClick={() => onEdit(post.id)}
+               onClick={alert("oops try again!")}
                 >Edit</Button>
                   <Button
                     variant="danger"

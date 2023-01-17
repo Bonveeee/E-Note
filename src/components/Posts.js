@@ -1,13 +1,34 @@
+import { useState } from "react";
 import { Container, Row, Col, Stack } from "react-bootstrap";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
-// import Post from "./Post";
-// import EditPost from "./EditPost";
-
+//import Post from "./Post";
+import EditPost from "./EditPost";
 
 const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
 
-    // return data in a container
+
+  const [editMode, setEditMode] = useState(null);
+  const [editingPostId, setEditingPostId] = useState(null);
+  const sortedPosts = posts.sort((a, b) => b.id - a.id);
+
+
+
+  const handleEdit = (id) => {
+    setEditMode(id);
+    setEditingPostId(id);
+  }
+
+  const handleCancel = () => {
+    setEditMode(null);
+    setEditingPostId(null);
+  }
+
+  const handleSaveChanges = () => {
+    setEditMode(true);
+    setEditingPostId(null);
+  }
+  // return data in a container
   return (
     <Container
       className="mt-2"
@@ -26,9 +47,9 @@ const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
         Your Posts
       </h1>
       <Row>
-        {posts.map((post, index) => (
-          <Col xs={12} md={4} key={index}>
-          {/* the post will be displayed in a card format */}
+        {sortedPosts.map((post, index) => (
+          <Col xs={12} md={4} key={post.id}>
+            {/* the post will be displayed in a card format */}
             <Card
               style={{
                 borderRadius: "10px",
@@ -38,15 +59,22 @@ const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
             >
               <CardBody>
                 <CardTitle>
-                  <h4 style={{textAlign: "center"}}>Title: {post.title}</h4>
+                  <h4 style={{ textAlign: "center" }}> Title: {post.title}</h4>
                 </CardTitle>
-                <CardSubtitle><h5>ID: {post.userId}</h5></CardSubtitle>
-                <CardSubtitle><h5>Post:</h5><span> {post.body}</span></CardSubtitle>
+                <CardSubtitle>
+                  <h4>ID: {post.userId}</h4>
+                </CardSubtitle>
+                <CardSubtitle>
+                  <h5>Post:</h5>
+                  <span> {post.body}</span>
+                </CardSubtitle>
 
                 <Stack direction="horizontal" gap={3}>
-                <Button 
-              //  onClick={alert("oops try again!")}
-                >Edit</Button>
+                <button variant="danger"
+                    size="sm" onClick={() => handleEdit(post.id)}>Edit</button>
+          {editMode && editingPostId === post.id ? (
+            <EditPost post={post} onCancel={handleCancel} onSave={handleSaveChanges} />
+          ) : null}
                   <Button
                     variant="danger"
                     size="sm"

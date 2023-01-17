@@ -4,10 +4,12 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
-// import EditPost from "./components/EditPost";
+
+
 
 function App() {
   const [posts, setPosts] = useState([]);
+  
 
   //fetches data from mock local api using async  GET
   useEffect(() => {
@@ -50,6 +52,7 @@ function App() {
     setPosts(posts.filter((post) => post.id !== id));
   };
 
+
   // //edit post
   // const editPost = async (post) => {
   //   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
@@ -62,7 +65,7 @@ function App() {
 
   //   //edited data
   //    const data = await res.json();
-  //     onEdit(post.id, data);
+  //    editPost(post.id, data);
   // };
 
   return (
@@ -76,12 +79,13 @@ function App() {
       <Container>
         {/* <EditPost/> */}
         <AddNote onAdd={addPost} />
+      
         <Posts
           posts={posts}
           onDelete={deletePost}
-          // onEdit={editPost}
-        />
-
+        //  onEdit={editPost } 
+           />
+     
         <Footer />
       </Container>
     </Router>

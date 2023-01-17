@@ -71,7 +71,10 @@ const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
 
                 <Stack direction="horizontal" gap={3}>
                 <button variant="danger"
-                    size="sm" onClick={() => handleEdit(post.id)}>Edit</button>
+                    size="sm" onClick={() => {
+                      handleEdit(post.id); 
+                      setEditingPostId(post.id);
+                    }}>Edit</button>
           {editMode && editingPostId === post.id ? (
             <EditPost post={post} onCancel={handleCancel} onSave={handleSaveChanges} />
           ) : null}

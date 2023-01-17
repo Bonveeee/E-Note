@@ -9,16 +9,16 @@
  - [Authors Info](#Authors-Info)
  ## Description
  
- <p>This Repository Contains the E-Note SPA web-app.<br> The goal of the App is to help users create, read, update and delete notes and offer other userfriendly experiences. 
+ <p>This Repository Contains the E-Post SPA web-app.<br> The goal of the App is to help users create, read, update and delete post-notes and offer other userfriendly experiences. 
  </p>
  
-[Go Back to the top](#E-Note)
+[Go Back to the top](#E-Post)
 
 ## Features
     Single Page Application 
     RESTful API integration 
     
-[Go Back to the top](#E-Note)
+[Go Back to the top](#E-Post)
  ###  Requirements
  
 - A computer that runs on either of the following; (Windows 7+, Linux, Mac OS)
@@ -83,6 +83,7 @@ You may also see any lint errors in the console.
 * 
 ## Future updates
 * scale to add more features , to do, share,  archive etc.
+
 ## MIT License
 
 Copyright (c) [2023] [E-Post] 
@@ -101,4 +102,4 @@ Gmail -
 Twitter -
         [Bonveeee](https://twitter.com/bonveeee)
 
-[Go Back to the top](#E-Note)
+[Go Back to the top](#E-Post)

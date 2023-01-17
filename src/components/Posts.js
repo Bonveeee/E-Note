@@ -7,13 +7,13 @@ import EditPost from "./EditPost";
 
 const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
 
+  //sorts the data to most recent id which will then be mapped
+  const sortedPosts = posts.sort((a, b) => b.id - a.id);
 
   const [editMode, setEditMode] = useState(null);
   const [editingPostId, setEditingPostId] = useState(null);
-  const sortedPosts = posts.sort((a, b) => b.id - a.id);
 
-
-
+  //enabling event handlers for edit button
   const handleEdit = (id) => {
     setEditMode(id);
     setEditingPostId(id);

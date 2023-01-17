@@ -1,9 +1,9 @@
 import React, { useState, useEffect} from 'react';
-import { Form, FormGroup, Label, Input, Button } from "reactstrap";
-
+import { Form, FormGroup, Label, Input } from "reactstrap";
 
 const EditPost = ({ post, onEdit, setEditMode }) => {
 
+  //state variables
   const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
@@ -13,7 +13,6 @@ const EditPost = ({ post, onEdit, setEditMode }) => {
     setUserId(post.userId);
     setBody(post.body);
 }, [post]);
-
 
   const [formData, setFormData] = useState({
     title: post.title,
@@ -26,9 +25,7 @@ const EditPost = ({ post, onEdit, setEditMode }) => {
       ...formData,
       [e.target.name]: e.target.value
     });
-  }
-
-  
+  }  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -86,4 +83,3 @@ const EditPost = ({ post, onEdit, setEditMode }) => {
 }
 
 export default EditPost;
-

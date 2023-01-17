@@ -5,12 +5,9 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
 
-
-
 function App() {
   const [posts, setPosts] = useState([]);
   
-
   //fetches data from mock local api using async  GET
   useEffect(() => {
     const getPosts = async () => {
@@ -52,23 +49,7 @@ function App() {
     setPosts(posts.filter((post) => post.id !== id));
   };
 
-
-  // //edit post
-  // const editPost = async (post) => {
-  //   const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${post.id}`, {
-  //     method: "PUT",
-  //     headers: {
-  //       "Content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(post),
-  //   });
-
-  //   //edited data
-  //    const data = await res.json();
-  //    editPost(post.id, data);
-  // };
-
-  return (
+    return (
     <Router>
       <Navbar bg="light" expand="lg" className="justify-content-between">
         <Navbar.Brand href="#home">
@@ -91,5 +72,4 @@ function App() {
     </Router>
   );
 }
-
 export default App;

@@ -14,20 +14,13 @@ const AddPost = ({ onAdd }) => {
     e.preventDefault();
 
     //catch error to avoid unwanted blank dummy data
-    if (!body) {
-      alert("Please add body for the post");
+    if (!body || !title) {
+      alert("Please add a title and body for the post");
       return;
     }
 
-    if (!title) {
-      alert("Please add a title for the post");
-      return;
-    }
+    if(isNaN(userId)) alert("Please add a correct ID number");
 
-    if (!userId) {
-      alert("Please add an ID for the post");
-      return;
-    }
 
     onAdd({ userId, title, body });
 

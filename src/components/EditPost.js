@@ -6,6 +6,7 @@ const EditPost = ({ post, onEdit, onCancel }) => {
   const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
+  
 
   useEffect(() => {
     setTitle(post.title);
@@ -13,27 +14,26 @@ const EditPost = ({ post, onEdit, onCancel }) => {
     setBody(post.body);
   }, [post]);
 
-  // const [formData, setFormData] = useState({
-  //   title: post.title,
-  //   userId: post.userId,
-  //   body: post.body,
-  // });
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    post.title = title;
+    post.userId = userId;
+    post.body = body;
     try {
       const res = await fetch(
         `https://jsonplaceholder.typicode.com/posts/${post.id}`,
         {
           method: "PUT",
           body: JSON.stringify(post),
-          headers: {
+           headers: {
             "Content-Type": "application/json",
           },
         }
       );
       const data = await res.json();
+      console.log(data)
       onEdit(post.id, data);
+         console.log(data)
     } catch (err) {
       console.error(err);
     }
@@ -71,7 +71,8 @@ const EditPost = ({ post, onEdit, onCancel }) => {
           onChange={(e) => setBody(e.target.value)}
         />
       </FormGroup>
-      <button type="submit">Save Changes</button>
+      <button type="submit" onClick={() => onEdit(post.id, post)}>Save Changes</button>
+
       <Button
         className="mt-2"
         variant="secondary"

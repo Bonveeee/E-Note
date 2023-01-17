@@ -5,7 +5,7 @@ import { FaThumbsDown, FaThumbsUp } from "react-icons/fa";
 //import Post from "./Post";
 import EditPost from "./EditPost";
 
-const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
+const Posts = ({ posts, onDelete, onEdit }) => {
 
   //sorts the data to most recent id which will then be mapped
   const sortedPosts = posts.sort((a, b) => b.id - a.id);
@@ -14,9 +14,10 @@ const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
   const [editingPostId, setEditingPostId] = useState(null);
 
   //enabling event handlers for edit button
-  const handleEdit = (id) => {
+  const handleEdit = (id, updatedPost) => {
     setEditMode(id);
     setEditingPostId(id);
+    
   }
 
   const handleCancel = () => {
@@ -76,7 +77,7 @@ const Posts = ({ posts, onDelete, onToggle, onEdit }) => {
                       setEditingPostId(post.id);
                     }}>Edit</button>
           {editMode && editingPostId === post.id ? (
-            <EditPost post={post} onCancel={handleCancel} onSave={handleSaveChanges} />
+            <EditPost post={post} onEdit={handleEdit} onCancel={handleCancel} onSave={handleSaveChanges} />
           ) : null}
                   <Button
                     variant="danger"

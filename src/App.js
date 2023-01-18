@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
-import AddNote from "./components/AddPost";
-import { Navbar, Nav, Container } from "react-bootstrap";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
+import About from "./components/About";
+import Contact from "./components/Contact";
+// import { Search } from "react-router-dom";
+import Home from "./components/Home";
+import NavBar from "./components/NavBar";
 
 function App() {
   const [posts, setPosts] = useState([]);
-  
+
   //fetches data from mock local api using async  GET
   useEffect(() => {
     const getPosts = async () => {
@@ -25,20 +28,20 @@ function App() {
     return data;
   };
 
-  //add POST
-  const addPost = async (post) => {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
-      method: "POST",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(post),
-    });
+  // //add POST
+  // const addPost = async (post) => {
+  //   const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-type": "application/json",
+  //     },
+  //     body: JSON.stringify(post),
+  //   });
 
-    //new data is added
-    const data = await res.json();
-    setPosts([...posts, data]);
-  };
+  //   //new data is added
+  //   const data = await res.json();
+  //   setPosts([...posts, data]);
+  // };
 
   //Delete Task
   const deletePost = async (id) => {
@@ -49,26 +52,25 @@ function App() {
     setPosts(posts.filter((post) => post.id !== id));
   };
 
-    return (
+  return (
     <Router>
-      <Navbar bg="light" expand="lg" className="justify-content-between">
-        <Navbar.Brand href="#home">
-          <h1 style={{ margin: " 10px 20px 10px 10px" }}>E-Post</h1>
-        </Navbar.Brand>
-        <Nav className="justify-content-center"></Nav>
-      </Navbar>
-      <Container>
-        {/* <EditPost/> */}
-        <AddNote onAdd={addPost} />
-      
-        <Posts
-          posts={posts}
-          onDelete={deletePost}
-        //  onEdit={editPost } 
-           />
-     
-        <Footer />
-      </Container>
+      <NavBar />
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route
+          path="/blog"
+          element={
+            <Posts
+              posts={posts}
+              onDelete={deletePost}
+              //  onEdit={editPost }
+            />
+          }
+        />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" exact element={<Contact />} />
+      </Routes>
+      <Footer />
     </Router>
   );
 }

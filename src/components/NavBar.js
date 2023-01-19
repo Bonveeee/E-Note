@@ -18,11 +18,11 @@ const NavBar = () => {
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="justify-content-between" style={{ margin: "auto" }}>
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/blog">Blog</Nav.Link>
-              <Nav.Link href="/about">About</Nav.Link>
-              <Nav.Link href="/contact">Contact Us</Nav.Link>
+            <Nav className="justify-content-between" style={{ margin: "auto" }} >
+              <Nav.Link href="/" style={{color: 'white', opacity: 0.9}} >Home</Nav.Link>
+              <Nav.Link href="/blog"  style={{color: 'white', opacity: 0.9}}>Blog</Nav.Link>
+              <Nav.Link href="/about" style={{color: 'white', opacity: 0.9}}>About Us</Nav.Link>
+              <Nav.Link href="/contact" style={{color: 'white', opacity: 0.9}}>Contact Us</Nav.Link>
             </Nav>
             <Form className="d-flex"  >
               <Form.Control
@@ -37,7 +37,7 @@ const NavBar = () => {
             </Form>
           </Navbar.Collapse>
           <Navbar.Text  >
-            Signed in as: <a href="#login">Chebukati</a>
+            Signed in as: <a href="#login">Chebukati34</a>
           </Navbar.Text>
         </Container>
       </Navbar>

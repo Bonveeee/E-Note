@@ -21,7 +21,7 @@ const AddPost = ({ onAdd }) => {
 
     if(isNaN(userId)) alert("Please add a correct ID number");
 
-
+    alert(" Success, your post has been created!")
     onAdd({ userId, title, body });
 
     setUserId("");
@@ -39,7 +39,7 @@ const AddPost = ({ onAdd }) => {
         size="sm"
         style={{marginBottom:"10px"}}
       >
-        Click to add a Post
+        Write your story today! 
       </Button>
 
       <Collapse in={open}>

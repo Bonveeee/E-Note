@@ -57,7 +57,7 @@ const Home = () => {
               >
                 <Card.Title>
                   {" "}
-                  <h1>
+                  <h1 className = "text-blue">
                     Welcome to E-Post
                     <span>
                       {" "}

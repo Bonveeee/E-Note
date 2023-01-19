@@ -36,8 +36,10 @@ const AddPost = ({ onAdd }) => {
         onClick={() => setOpen(!open)}
         aria-controls="example-collapse-text"
         aria-expanded={open}
-        size="sm"
+        size="lg"
+        variant="outline-dark" 
         style={{marginBottom:"10px"}}
+        className="d-sm-inline-block"
       >
         Write your story today! 
       </Button>

@@ -3,6 +3,7 @@ import { Form, Button, Collapse } from "react-bootstrap";
 
 //this component is mainly for adding posts,  catch  errors and utilizes react bootstrap form
 const AddPost = ({ onAdd }) => {
+
   //state variables
   const [userId, setUserId] = useState("");
   const [title, setTitle] = useState("");
@@ -19,15 +20,14 @@ const AddPost = ({ onAdd }) => {
       return;
     }
 
-    if(isNaN(userId)) alert("Please add a correct ID number");
+    if (isNaN(userId)) alert("Please add a correct ID number");
 
-    alert(" Success, your post has been created!")
+    alert(" Success, your post has been created!");
     onAdd({ userId, title, body });
 
     setUserId("");
     setTitle("");
     setBody("");
-    
   };
 
   return (
@@ -37,11 +37,11 @@ const AddPost = ({ onAdd }) => {
         aria-controls="example-collapse-text"
         aria-expanded={open}
         size="lg"
-        variant="outline-dark" 
-        style={{marginBottom:"10px"}}
+        variant="outline-dark"
+        style={{ marginBottom: "10px" , marginLeft: "10px" }}
         className="d-sm-inline-block"
       >
-        Write your story today! 
+        Write your story today!
       </Button>
 
       <Collapse in={open}>
@@ -75,8 +75,9 @@ const AddPost = ({ onAdd }) => {
                 onChange={(e) => setBody(e.target.value)}
               />
             </Form.Group>
-           
             <Button as="input" type="submit" value="Submit" size="sm" />{" "}
+            {/* <Button as="input" type="onClick" value="Cancel" size="sm" />{" "} */}
+          
           </Form>
         </div>
       </Collapse>

@@ -77,10 +77,10 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-
+{/* 
         {firstThreePosts.map((post, index) => (
           <h4>ID: {post.userId}</h4>
-                  ))}
+                  ))} */}
                   </>
      
   );

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import './index.css';
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
 import About from "./components/About";
@@ -8,6 +9,7 @@ import Contact from "./components/Contact";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import AddPost from "./components/AddPost";
+
 
 
 function App() {

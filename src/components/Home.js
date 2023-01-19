@@ -70,6 +70,7 @@ const Home = () => {
                   <Card.Text>
                     {" "}
                     <AddPost onAdd={addPost} />
+                  
                   </Card.Text>
                 </Card.Body>
               </Card.Body>
@@ -81,6 +82,7 @@ const Home = () => {
         {firstThreePosts.map((post, index) => (
           <h4>ID: {post.userId}</h4>
                   ))} */}
+               
                   </>
      
   );

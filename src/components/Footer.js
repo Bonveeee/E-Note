@@ -19,7 +19,7 @@ const Footer = () => {
                 Get Started
               </Button>{" "}
               <hr />
-              <h4 className="mt-2">Copyright © 2023</h4>
+              <h4 className="mt-2" style={{color: 'black'}} >Copyright © 2023</h4>
             </p>
           </Col>
         </Row>

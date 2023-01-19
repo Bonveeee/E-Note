@@ -1,4 +1,5 @@
 import { Navbar, Nav, Container, Form, Button } from "react-bootstrap";
+import Search from "./Search";
 
 const NavBar = () => {
   return (
@@ -34,18 +35,9 @@ const NavBar = () => {
                 Contact Us
               </Nav.Link>
             </Nav>
-            <Form className="d-flex">
-              <Form.Control
-                type="search"
-                placeholder="Search for a blog-Post"
-                className="me-1"
-                aria-label="Search"
-                style={{ r: "auto" }}
-              />
-              <Button variant="outline-dark">Search</Button>
-            </Form>
+            <Search/>
           </Navbar.Collapse>
-        
+
           <Navbar.Text>
             Signed in as: <a href="#login">Chebukati34</a>
           </Navbar.Text>

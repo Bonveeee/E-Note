@@ -2,8 +2,6 @@ import { useState } from "react";
 import { Container, Row, Col, Stack } from "react-bootstrap";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import { FaThumbsUp } from "react-icons/fa";
-
-//import Post from "./Post";
 import EditPost from "./EditPost";
 
 const Posts = ({ posts, onDelete, onEdit }) => {
@@ -29,6 +27,7 @@ const Posts = ({ posts, onDelete, onEdit }) => {
     setEditingPostId(null);
   };
 
+  //state variables for card-styles
   const [isHovered, setIsHovered] = useState(false);
 
   // let active = 2;

@@ -1,6 +1,7 @@
-import { Navbar, Nav, Container, Form, Button } from "react-bootstrap";
+import { Navbar, Nav, Container } from "react-bootstrap";
 import Search from "./Search";
 
+//Navbar display
 const NavBar = () => {
   return (
     <>

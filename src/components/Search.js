@@ -5,7 +5,7 @@ const Search = () => {
   const [searchValue, setSearchValue] = useState("");
   const [filteredPosts, setPosts] = useState([]);
 
-  //fetch posts READ
+  //fetch posts 
   const fetchPosts = async () => {
     const res = await fetch("https://jsonplaceholder.typicode.com/posts");
     const data = await res.json();
@@ -29,7 +29,7 @@ const Search = () => {
     setPosts(filteredPosts);
 
     // Display filtered posts
- 
+  //  console.log(filteredPosts)
   };
 
   return (

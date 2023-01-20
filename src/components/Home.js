@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Container, Row, Col, Card, Image} from "react-bootstrap";
-// import { CardBody, CardGroup, CardSubtitle, CardTitle } from "reactstrap";
 import AddPost from "./AddPost";
 import Posts from "./Posts";
 
@@ -10,8 +9,10 @@ const Home = () => {
 
   //sorts the data to most recent id which will then be mapped
   const sortedPosts = posts.sort((a, b) => b.id - a.id);
-  const firstThreePosts = sortedPosts.slice(0, 3); // Get the first three items
-  //add POST
+
+  // Get the first three items
+  const firstThreePosts = sortedPosts.slice(0, 3); 
+  
   //console.log(firstThreePosts)
   //  console.log(sortedPosts)
 

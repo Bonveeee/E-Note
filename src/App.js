@@ -1,16 +1,13 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './index.css';
+import "./index.css";
 import Footer from "./components/Footer";
 import Posts from "./components/Posts";
 import About from "./components/About";
 import Contact from "./components/Contact";
-// import { Search } from "react-router-dom";
 import Home from "./components/Home";
 import NavBar from "./components/NavBar";
 import AddPost from "./components/AddPost";
-
-
 
 function App() {
   const [posts, setPosts] = useState([]);
@@ -57,6 +54,7 @@ function App() {
   };
 
   return (
+    // client-side routing
     <Router>
       <NavBar />
       <Routes>
@@ -65,21 +63,20 @@ function App() {
           path="/blog"
           element={
             <>
-             <AddPost onAdd={addPost} />
-            <Posts            
-              posts={posts}
-              onDelete={deletePost}
-              //  onEdit={editPost }
-            />
-            
-             </>}
+              <AddPost onAdd={addPost} />
+              <Posts
+                posts={posts}
+                onDelete={deletePost}
+                //  onEdit={editPost }
+              />
+            </>
+          }
         />
         <Route path="/about" element={<About />} />
         <Route path="/contact" exact element={<Contact />} />
       </Routes>
       <Footer />
     </Router>
-     
   );
 }
 export default App;

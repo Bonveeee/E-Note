@@ -1,20 +1,10 @@
 import { useState } from "react";
-import { Container, Row, Col, Card, Image} from "react-bootstrap";
+import { Container, Row, Col, Card, Image } from "react-bootstrap";
 import AddPost from "./AddPost";
-import Posts from "./Posts";
-
+import RecentPost from "./RecentPost";
 
 const Home = () => {
   const [posts, setPosts] = useState([]);
-
-  //sorts the data to most recent id which will then be mapped
-  const sortedPosts = posts.sort((a, b) => b.id - a.id);
-
-  // Get the first three items
-  const firstThreePosts = sortedPosts.slice(0, 3); 
-  
-  //console.log(firstThreePosts)
-  //  console.log(sortedPosts)
 
   //add POST
   const addPost = async (post) => {
@@ -29,7 +19,7 @@ const Home = () => {
     //new data is added
     const data = await res.json();
     setPosts([...posts, data]);
-    console.log(data)
+    console.log(data);
   };
 
   return (
@@ -58,7 +48,7 @@ const Home = () => {
               >
                 <Card.Title>
                   {" "}
-                  <h1 className = "text-blue">
+                  <h1 className="text-blue">
                     Welcome to E-Post
                     <span>
                       {" "}
@@ -71,7 +61,6 @@ const Home = () => {
                   <Card.Text>
                     {" "}
                     <AddPost onAdd={addPost} />
-                  
                   </Card.Text>
                 </Card.Body>
               </Card.Body>
@@ -79,13 +68,8 @@ const Home = () => {
           </Col>
         </Row>
       </Container>
-{/* 
-        {firstThreePosts.map((post, index) => (
-          <h4>ID: {post.userId}</h4>
-                  ))} */}
-               
-                  </>
-     
+      <RecentPost />
+    </>
   );
 };
 

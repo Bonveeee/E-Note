@@ -1,4 +1,5 @@
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const AboutUs = () => {
   return (
@@ -20,15 +21,17 @@ const AboutUs = () => {
           tincidunt magna ligula eget est. Sed accumsan euismod risus, id
           tincidunt magna.
         </p>
-        <Button
-          href="/contact"
-          style={{ marginBottom: "10px", marginTop: "10px" }}
-          size="lg"
-          variant="outline-dark"
-          className="text-center"
-        >
-          Connect With Us
-        </Button>
+        <Link to={`/contact`}>
+          <Button
+            href="/contact"
+            style={{ marginBottom: "10px", marginTop: "10px" }}
+            size="lg"
+            variant="outline-dark"
+            className="text-center"
+          >
+            Connect With Us
+          </Button>{" "}
+        </Link>
       </div>
     </>
   );

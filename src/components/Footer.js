@@ -1,4 +1,5 @@
 import { Container, Row, Col, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -15,11 +16,16 @@ const Footer = () => {
             <p className="text-center">
               <h4>Let's Get Started on Something Great</h4>
               <h6>Join over 1000+ writers already growing with E-Post</h6>
-              <Button href="/contact" variant="outline-dark" size="lg">
-                Get Started
-              </Button>{" "}
+              <Link to={`/contact`}>
+                <Button variant="outline-dark" size="lg">
+                  Get Started
+                </Button>{" "}
+              </Link>
+
               <hr />
-              <h4 className="mt-2" style={{color: 'black'}} >Copyright © 2023</h4>
+              <h4 className="mt-2" style={{ color: "black" }}>
+                Copyright © 2023
+              </h4>
             </p>
           </Col>
         </Row>

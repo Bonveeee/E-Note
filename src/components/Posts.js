@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState , useEffect} from "react";
 import { Container, Row, Col, Stack } from "react-bootstrap";
 import { Card, CardBody, CardTitle, CardSubtitle, Button } from "reactstrap";
 import { FaThumbsUp } from "react-icons/fa";
 import EditPost from "./EditPost";
+import Pagination from  "./Pagination"
 
 const Posts = ({ posts, onDelete, onEdit }) => {
   //sorts the data to most recent id which will then be mapped
@@ -10,7 +11,7 @@ const Posts = ({ posts, onDelete, onEdit }) => {
 
   const [editMode, setEditMode] = useState(null);
   const [editingPostId, setEditingPostId] = useState(null);
-
+  
   //enabling event handlers for edit button
   const handleEdit = (id, updatedPost) => {
     setEditMode(id);
@@ -30,14 +31,26 @@ const Posts = ({ posts, onDelete, onEdit }) => {
   //state variables for card-styles
   const [isHovered, setIsHovered] = useState(false);
 
-  // let active = 2;
-  //  for (let number = 1; number <= 10; number++) {
-  //   sortedPosts.push(
-  //     <Pagination.Item key={number} active={number === active}>
-  //       {number}
-  //     </Pagination.Item>,
-  //   );
-  // }
+//pagination
+  const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(21);
+  
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+      const data = await res.json();
+      setData(data);
+    };
+    fetchData();
+  }, []);
+  
+  // Get current posts
+  const indexOfLastPost = currentPage * itemsPerPage;
+  const indexOfFirstPost = indexOfLastPost - itemsPerPage;
+  const currentPosts = sortedPosts.slice(indexOfFirstPost, indexOfLastPost);
+  
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   // return data in a container
   return (
@@ -59,7 +72,7 @@ const Posts = ({ posts, onDelete, onEdit }) => {
           Available Posts
         </h1>
         <Row>
-          {sortedPosts.map((post, index) => (
+          {currentPosts.map((post, index) => (
             <Col xs={12} md={4} key={post.id}>
               {/* the post will be displayed in a card format */}
               <Card
@@ -67,6 +80,7 @@ const Posts = ({ posts, onDelete, onEdit }) => {
                   borderRadius: "10px",
                   marginBottom: "20px",
                   border: "2px solid blue",
+                  width: "100%", height: "auto"
                 }}
                 className={`card-container ${isHovered ? "hovered" : ""}`}
                 onMouseEnter={() => setIsHovered(true)}
@@ -170,8 +184,13 @@ const Posts = ({ posts, onDelete, onEdit }) => {
           ))}
         </Row>
       </Container>
-      {/* <Pagination>{sortedPosts}</Pagination> */}
-    </>
+      <Pagination 
+    itemsPerPage={itemsPerPage} 
+    totalItems={data.length} 
+    paginate={paginate} 
+    currentPage={currentPage}
+    />
+   </>
   );
 };
 

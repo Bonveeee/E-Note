@@ -59,6 +59,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" exact element={<Home />} />
+        <Route path="/page/:id" exact element={<Posts />} />
         <Route
           path="/blog"
           element={
